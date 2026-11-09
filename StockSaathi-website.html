@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockSaathi — Check before you go</title>
+<style>
+:root{--navy:#172b49;--orange:#ff7a1a;--burnt:#a94f13;--cream:#fff8ec;--muted:#687486;--line:#eee2d0;--green:#18794e;--red:#b42318;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--navy);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.topbar{position:sticky;top:0;z-index:20;background:rgba(255,248,236,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem;white-space:nowrap}.logo{display:grid;place-items:center;width:40px;height:40px;background:var(--orange);color:#fff;border-radius:13px;font-size:1.35rem;box-shadow:0 5px 14px #ff7a1a38}.brand small{display:block;font-size:.67rem;color:var(--muted);font-weight:600;letter-spacing:.02em}.navlinks{display:flex;gap:19px;margin-left:auto}.navlinks a{color:var(--navy);text-decoration:none;font-size:.92rem;font-weight:700}.navlinks a:hover{color:var(--burnt)}.nav-actions{display:flex;gap:9px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:800;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{transform:translateY(-1px)}.primary{background:var(--orange);color:#231c17;box-shadow:0 5px 12px #ff7a1a30}.secondary{background:#fff;border:1px solid var(--line);color:var(--navy)}.dark{background:var(--navy);color:#fff}.small{padding:8px 11px;font-size:.84rem}.hero{max-width:1180px;margin:auto;padding:68px 22px 54px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#ffead7;color:#93440e;border-radius:100px;padding:8px 12px;font-size:.8rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}.hero h1{font-size:clamp(2.7rem,5.7vw,5rem);line-height:.99;letter-spacing:-.055em;margin:20px 0}.hero h1 span{color:var(--orange)}.lead{font-size:1.12rem;line-height:1.75;color:#536176;max-width:560px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.trust{font-size:.85rem;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}.hero-art{background:linear-gradient(145deg,#ffddb7,#ffc17e);border-radius:30px;min-height:390px;padding:28px;position:relative;overflow:hidden;box-shadow:0 22px 60px #9b5a2220}.sun{position:absolute;right:30px;top:25px;width:88px;height:88px;background:#ffefbd;border-radius:50%}.store-scene{position:absolute;inset:70px 26px 24px;display:flex;align-items:end;justify-content:center}.shop{position:relative;background:#fff3dc;border:5px solid #b75b19;border-bottom:0;border-radius:8px 8px 0 0;width:76%;height:230px;box-shadow:0 15px 25px #82420d30}.shop-sign{position:absolute;top:-48px;left:-5px;right:-5px;height:48px;background:#b75b19;color:white;display:grid;place-items:center;font-size:1.12rem;font-weight:900;letter-spacing:.06em}.awning{position:absolute;top:0;left:-6px;right:-6px;height:35px;background:repeating-linear-gradient(90deg,#ff7a1a 0 40px,#fff3dc 40px 80px);border-bottom:4px solid #b75b19}.shelves{position:absolute;top:48px;left:13px;right:13px;bottom:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.shelf{border-bottom:7px solid #a86b38;display:flex;align-items:end;justify-content:space-around;gap:3px;padding-bottom:6px}.jar{height:43px;width:14px;border-radius:4px 4px 2px 2px;background:#df8d26;border:2px solid #b76b16}.jar:nth-child(2){height:32px;background:#e8c54c}.jar:nth-child(3){height:50px;background:#c86a34}.jar:nth-child(4){height:38px;background:#7d9b53}.float-card{position:absolute;background:white;border:1px solid #f2e3d2;border-radius:17px;padding:15px 17px;box-shadow:0 12px 30px #60340e24}.float-card strong{display:block;font-size:.93rem}.float-card small{color:var(--muted)}.float-card.one{top:88px;left:16px}.float-card.two{right:12px;bottom:30px}.status-dot{display:inline-block;width:9px;height:9px;background:#20a46a;border-radius:50%;margin-right:6px}.section{max-width:1180px;margin:auto;padding:48px 22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}.section h2{font-size:clamp(1.8rem,3.3vw,2.8rem);letter-spacing:-.04em;margin:0 0 8px}.sub{color:var(--muted);line-height:1.6;margin:0}.search-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 25px #5d37100a}.searchbox{flex:1;display:flex;gap:10px;align-items:center;border:1px solid #e7dfd4;background:#fffdfa;border-radius:13px;padding:0 13px}.searchbox input{border:0;outline:0;background:transparent;width:100%;padding:14px 0;color:var(--navy)}select,.field{border:1px solid #e7dfd4;border-radius:12px;padding:12px;background:#fffdfa;color:var(--navy);outline-color:var(--orange)}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0 23px}.chip{border:1px solid var(--line);background:#fff;border-radius:100px;padding:9px 14px;color:var(--navy);font-size:.88rem;font-weight:750}.chip.active,.chip:hover{background:var(--navy);color:white;border-color:var(--navy)}.results-top{display:flex;align-items:center;justify-content:space-between;margin:16px 0}.results-top span{color:var(--muted);font-size:.9rem}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;transition:.2s;box-shadow:0 5px 15px #52300b08}.product:hover{transform:translateY(-3px);box-shadow:0 14px 30px #52300b12}.product-visual{height:125px;border-radius:13px;background:linear-gradient(145deg,#fff2dc,#ffe4bf);display:grid;place-items:center;font-size:3.6rem;position:relative}.badge{position:absolute;top:9px;right:9px;border-radius:100px;padding:5px 8px;font-size:.69rem;font-weight:900}.in{background:#ddf7e9;color:#176a43}.out{background:#ffe5e1;color:#a72c24}.product h3{margin:14px 0 4px;font-size:1.05rem}.meta{font-size:.82rem;color:var(--muted)}.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:15px;gap:8px}.price{font-size:1.12rem;font-weight:900}.shops-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.shop-card{background:white;border:1px solid var(--line);border-radius:18px;padding:19px}.shop-emoji{width:48px;height:48px;background:#ffead7;border-radius:14px;display:grid;place-items:center;font-size:1.7rem}.shop-card h3{margin:12px 0 5px}.shop-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}.shop-info{display:flex;justify-content:space-between;gap:8px;margin:14px 0;font-size:.85rem}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:#fff;border:1px solid var(--line);border-radius:17px;padding:21px}.step-num{display:grid;place-items:center;width:42px;height:42px;background:var(--burnt);color:#fff;border-radius:50%;font-weight:900}.step h3{margin:16px 0 8px}.step p{color:var(--muted);line-height:1.6;margin:0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}.info-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}.info-card h3{font-size:1.4rem;margin:10px 0}.info-card p,.info-card li{color:var(--muted);line-height:1.65}.checklist{padding-left:20px}.banner{background:var(--navy);color:white;border-radius:25px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:20px}.banner p{color:#d7deea;margin-bottom:0}.banner h2{margin:0}.footer{margin-top:40px;background:#14243c;color:#fff;padding:32px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer p{color:#bdc8d8;margin:6px 0}.modal-backdrop{display:none;position:fixed;inset:0;z-index:50;background:#101b2dcc;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{background:var(--cream);width:min(620px,100%);max-height:90vh;overflow:auto;border-radius:22px;padding:24px;box-shadow:0 25px 80px #0004}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.modal-head h2{margin:0}.close{border:0;background:#efe4d4;border-radius:10px;width:38px;height:38px;font-size:1.2rem}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-row{display:flex;flex-direction:column;gap:6px;margin:13px 0}.form-row label{font-weight:800;font-size:.88rem}.form-row input,.form-row select{width:100%}.merchant-table{width:100%;border-collapse:collapse;margin-top:15px;background:white;border-radius:12px;overflow:hidden}.merchant-table th,.merchant-table td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:.88rem}.merchant-table th{background:#ffead7}.merchant-table input{width:85px;padding:7px;border:1px solid var(--line);border-radius:8px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--navy);color:white;padding:13px 18px;border-radius:12px;z-index:80;box-shadow:0 10px 30px #0002;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.empty{grid-column:1/-1;text-align:center;padding:35px;background:#fff;border:1px dashed var(--line);border-radius:18px;color:var(--muted)}.fineprint{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:14px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:42px}.hero-art{min-height:350px}.products{grid-template-columns:repeat(2,1fr)}.shops-list{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.nav-actions{margin-left:auto}}
+@media(max-width:560px){.nav{padding:11px 14px;gap:8px}.brand{font-size:1rem}.logo{width:36px;height:36px}.nav-actions .secondary{display:none}.nav-actions .btn{padding:9px 10px;font-size:.82rem}.hero{padding:35px 16px 25px;gap:25px}.hero h1{font-size:2.75rem}.hero-art{min-height:300px;padding:16px}.store-scene{inset:70px 15px 18px}.shop{height:180px;width:82%}.shelves{top:43px}.jar{width:10px;height:34px}.jar:nth-child(3){height:40px}.float-card{padding:10px 12px}.float-card.one{top:76px;left:8px}.float-card.two{right:7px;bottom:17px}.section{padding:35px 16px}.section-head{align-items:start;flex-direction:column}.search-panel{flex-direction:column;align-items:stretch}.search-panel select{width:100%}.products{gap:10px}.product{padding:10px}.product-visual{height:100px;font-size:2.8rem}.product h3{font-size:.96rem}.product-bottom{align-items:start;flex-direction:column}.product-bottom .btn{width:100%}.shops-list,.two-col{grid-template-columns:1fr}.steps{gap:10px}.step{padding:15px}.banner{padding:24px;align-items:start;flex-direction:column}.form-grid{grid-template-columns:1fr}.merchant-table th,.merchant-table td{padding:7px 5px;font-size:.78rem}.merchant-table input{width:60px}.footer-inner{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <a class="brand" href="#home" style="text-decoration:none;color:inherit"><span class="logo">✓</span><span>StockSaathi<small>Check before you go.</small></span></a>
+    <div class="navlinks"><a href="#find">Find groceries</a><a href="#how">How it works</a><a href="#shops">Local shops</a><a href="#about">About</a></div>
+    <div class="nav-actions"><button class="btn secondary small" onclick="openMerchant()">Shopkeeper login</button><a class="btn primary small" href="#find" style="text-decoration:none">Find stock ↗</a></div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <span class="eyebrow">📍 Your neighbourhood, made easier</span>
+    <h1>Check stock.<br><span>Save time.</span></h1>
+    <p class="lead">Find everyday groceries at nearby kirana stores before you step outside. Less searching, fewer wasted trips, and more support for local shops.</p>
+    <div class="hero-buttons"><a class="btn primary" href="#find">🔎 Find a product</a><button class="btn secondary" onclick="openMerchant()">🏪 I'm a shopkeeper</button></div>
+    <div class="trust"><span>✓ Free for shoppers</span><span>✓ Local stores first</span><span>✓ Simple stock updates</span></div>
+  </div>
+  <div class="hero-art" aria-label="Illustration of a neighbourhood grocery shop">
+    <div class="sun"></div>
+    <div class="float-card one"><strong><span class="status-dot"></span>Stock at a glance</strong><small>Check before you go</small></div>
+    <div class="store-scene"><div class="shop"><div class="shop-sign">अपना किराना स्टोर</div><div class="awning"></div><div class="shelves"><div class="shelf"><i class="jar"></i><i class="jar"></i><i class="jar"></i></div><div class="shelf"><i class="jar"></i><i class="jar"></i><i class="jar"></i></div><div class="shelf"><i class="jar"></i><i class="jar"></i><i class="jar"></i></div><div class="shelf"><i class="jar"></i><i class="jar"></i><i class="jar"></i></div><div class="shelf"><i class="jar"></i><i class="jar"></i><i class="jar"></i></div></div></div></div>
+    <div class="float-card two"><strong>🛍️ Your local kirana</strong><small>Neighbourhood shops, connected</small></div>
+  </div>
+</section>
+
+<section class="section" id="find">
+  <div class="section-head"><div><span class="eyebrow">Shop smarter</span><h2>What do you need today?</h2><p class="sub">Search everyday essentials and compare sample availability at nearby stores.</p></div></div>
+  <div class="search-panel"><div class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Try atta, rice, oil, sugar..." oninput="renderProducts()"></div><select id="availabilityFilter" onchange="renderProducts()"><option value="all">All availability</option><option value="in">In stock</option><option value="out">Out of stock</option></select><select id="sortSelect" onchange="renderProducts()"><option value="popular">Popular first</option><option value="priceLow">Price: low to high</option><option value="priceHigh">Price: high to low</option></select><button class="btn primary" onclick="renderProducts()">Search</button></div>
+  <div class="chips" id="categoryChips"><button class="chip active" data-category="All" onclick="setCategory('All',this)">All items</button><button class="chip" data-category="Staples" onclick="setCategory('Staples',this)">🌾 Staples</button><button class="chip" data-category="Oil & Ghee" onclick="setCategory('Oil & Ghee',this)">🫗 Oil & ghee</button><button class="chip" data-category="Dairy" onclick="setCategory('Dairy',this)">🥛 Dairy</button><button class="chip" data-category="Snacks" onclick="setCategory('Snacks',this)">🍪 Snacks</button><button class="chip" data-category="Household" onclick="setCategory('Household',this)">🧼 Household</button></div>
+  <div class="results-top"><strong id="resultCount">Popular groceries</strong><span>Demo inventory · sample prices in ₹</span></div>
+  <div class="products" id="productsGrid"></div>
+  <p class="fineprint">Prototype note: stock status, prices, distances and shop details below are sample data for demonstration. Please confirm with a shopkeeper before travelling. This website is not connected to live store inventory.</p>
+</section>
+
+<section class="section" id="shops">
+  <div class="section-head"><div><span class="eyebrow">Around your neighbourhood</span><h2>Meet your local shops</h2><p class="sub">The trusted stores you already know — easier to discover, easier to visit.</p></div><button class="btn secondary" onclick="showToast('Map integration can be added when live location and store data are connected.')">📍 Explore map</button></div>
+  <div class="shops-list" id="shopsGrid"></div>
+</section>
+
+<section class="section" id="how">
+  <div class="section-head"><div><span class="eyebrow">Easy as 1–2–3–4</span><h2>From search to shop in four steps</h2><p class="sub">No warehouse, no delivery wait — just a smarter way to shop locally.</p></div></div>
+  <div class="steps">
+    <article class="step"><span class="step-num">01</span><h3>Search a product</h3><p>Type the grocery item you need. Voice search can be added in a future version.</p></article>
+    <article class="step"><span class="step-num">02</span><h3>Check nearby stock</h3><p>Compare availability and indicative prices at local kirana stores.</p></article>
+    <article class="step"><span class="step-num">03</span><h3>Visit with ease</h3><p>Choose a shop and go directly there instead of checking multiple stores.</p></article>
+    <article class="step"><span class="step-num">04</span><h3>Shopkeeper updates</h3><p>Merchants update quantities so shoppers can make more informed decisions.</p></article>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head"><div><span class="eyebrow">A win for both sides</span><h2>Hyperlocal, not warehouse</h2><p class="sub">StockSaathi aims to connect shoppers with existing neighbourhood shops instead of replacing them.</p></div></div>
+  <div class="two-col">
+    <article class="info-card"><span style="font-size:2rem">🛍️</span><h3>For shoppers</h3><ul class="checklist"><li>Reduce wasted trips</li><li>Check item availability before leaving</li><li>Discover nearby local shops</li><li>Free access to search and browse</li></ul></article>
+    <article class="info-card"><span style="font-size:2rem">🏪</span><h3>For shopkeepers</h3><ul class="checklist"><li>Get discovered by nearby customers</li><li>Update stock with a simple dashboard</li><li>Use existing phones — no expensive hardware needed</li><li>Optional paid plan and promotions in the proposed model</li></ul></article>
+  </div>
+  <div style="height:20px"></div>
+  <div class="two-col">
+    <article class="info-card"><span class="eyebrow">Proposed business model</span><h3>Fair monetisation for thriving kiranas</h3><p>As described in your concept PDF, StockSaathi may earn through monthly shopkeeper plans, optional shop promotions, and a small commission per confirmed sale. Shoppers remain free.</p><p class="fineprint">These are proposed revenue streams, not active payments or confirmed earnings.</p></article>
+    <article class="info-card"><span class="eyebrow">Our journey</span><h3>Start local. Grow thoughtfully.</h3><p><b>01 · Research:</b> understand kirana pain points.</p><p><b>02 · Prototype:</b> build a simple stock-sync experience.</p><p><b>03 · Local pilot:</b> test with a small group of neighbourhood shops.</p><p><b>04 · Area launch:</b> expand after inventory accuracy and shop adoption improve.</p></article>
+  </div>
+  <div style="height:24px"></div>
+  <div class="banner"><div><h2>Are you a local shopkeeper?</h2><p>Try the demo dashboard and see how simple stock updates could be.</p></div><button class="btn primary" onclick="openMerchant()">Open shopkeeper demo →</button></div>
+</section>
+</main>
+
+<footer class="footer"><div class="footer-inner"><div><div class="brand" style="color:white"><span class="logo">✓</span><span>StockSaathi<small style="color:#bdc8d8">Check before you go.</small></span></div><p>Helping shoppers find stock and local shops find customers.</p></div><div><b>Built around local trust.</b><p>Concept prototype · Team Abhiman, Ujjwal & Ravi</p><p>© <span id="year"></span> StockSaathi</p></div></div></footer>
+
+<div class="modal-backdrop" id="merchantModal" role="dialog" aria-modal="true" aria-labelledby="merchantTitle" onclick="if(event.target===this)closeMerchant()">
+  <div class="modal">
+    <div class="modal-head"><div><span class="eyebrow">Merchant demo</span><h2 id="merchantTitle" style="margin-top:10px">Shopkeeper dashboard</h2></div><button class="close" onclick="closeMerchant()" aria-label="Close">×</button></div>
+    <p class="sub">This demo lets you add an item or change sample stock quantities in this browser. It does not publish stock to other users.</p>
+    <div class="form-grid">
+      <div class="form-row"><label for="shopName">Shop name</label><input class="field" id="shopName" value="My Kirana Store" placeholder="Your shop name"></div>
+      <div class="form-row"><label for="merchantArea">Area / locality</label><input class="field" id="merchantArea" value="Your neighbourhood" placeholder="e.g. Mithanpura"></div>
+    </div>
+    <div style="border-top:1px solid var(--line);margin:10px 0 0;padding-top:12px"><h3>Add a product</h3>
+      <div class="form-grid"><div class="form-row"><label for="newProduct">Product name</label><input class="field" id="newProduct" placeholder="e.g. Toor dal"></div><div class="form-row"><label for="newPrice">Price (₹)</label><input class="field" id="newPrice" type="number" min="0" placeholder="e.g. 120"></div><div class="form-row"><label for="newQty">Quantity in stock</label><input class="field" id="newQty" type="number" min="0" value="5"></div><div class="form-row"><label for="newCategory">Category</label><select id="newCategory"><option>Staples</option><option>Oil & Ghee</option><option>Dairy</option><option>Snacks</option><option>Household</option></select></div></div>
+      <button class="btn primary" onclick="addMerchantProduct()">＋ Add to demo inventory</button>
+    </div>
+    <h3 style="margin-top:24px">Your demo inventory</h3>
+    <div id="merchantInventory"></div>
+    <p class="fineprint">For a real launch, merchant accounts, secure login, a shared database, location permissions and server-side stock synchronisation will be required.</p>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const products = [
+ {id:1,name:"Wheat Atta",detail:"5 kg · Popular staple",price:245,category:"Staples",emoji:"🌾",shop:"Sharma Kirana",distance:"0.3 km",qty:8},
+ {id:2,name:"Basmati Rice",detail:"1 kg · Premium grain",price:92,category:"Staples",emoji:"🍚",shop:"Gupta General Store",distance:"0.5 km",qty:4},
+ {id:3,name:"Sunflower Oil",detail:"1 L · Cooking essential",price:142,category:"Oil & Ghee",emoji:"🫗",shop:"Fresh Mart",distance:"0.4 km",qty:6},
+ {id:4,name:"Sugar",detail:"1 kg · Everyday essential",price:48,category:"Staples",emoji:"🧂",shop:"Sharma Kirana",distance:"0.3 km",qty:0},
+ {id:5,name:"Table Salt",detail:"1 kg · Iodised",price:24,category:"Staples",emoji:"🧂",shop:"Daily Needs Store",distance:"0.6 km",qty:12},
+ {id:6,name:"Milk",detail:"500 ml · Chilled",price:30,category:"Dairy",emoji:"🥛",shop:"Gupta General Store",distance:"0.5 km",qty:9},
+ {id:7,name:"Tea",detail:"250 g · CTC tea",price:85,category:"Snacks",emoji:"🍵",shop:"Fresh Mart",distance:"0.4 km",qty:0},
+ {id:8,name:"Ghee",detail:"500 ml · Dairy",price:285,category:"Oil & Ghee",emoji:"🧈",shop:"Daily Needs Store",distance:"0.6 km",qty:3},
+ {id:9,name:"Biscuits",detail:"Family pack",price:35,category:"Snacks",emoji:"🍪",shop:"Sharma Kirana",distance:"0.3 km",qty:15},
+ {id:10,name:"Bath Soap",detail:"100 g · Personal care",price:38,category:"Household",emoji:"🧼",shop:"Gupta General Store",distance:"0.5 km",qty:7},
+ {id:11,name:"Toor Dal",detail:"1 kg · Pulses",price:155,category:"Staples",emoji:"🫘",shop:"Fresh Mart",distance:"0.4 km",qty:5},
+ {id:12,name:"Detergent",detail:"1 kg · Laundry",price:110,category:"Household",emoji:"🫧",shop:"Daily Needs Store",distance:"0.6 km",qty:2}
+];
+const shops=[
+ {name:"Sharma Kirana",emoji:"🏪",area:"Neighbourhood Market",distance:"0.3 km",hours:"8:00 AM – 9:00 PM",desc:"Everyday staples, snacks and household essentials."},
+ {name:"Fresh Mart",emoji:"🛒",area:"Main Road",distance:"0.4 km",hours:"7:30 AM – 10:00 PM",desc:"Groceries, cooking essentials and pantry items."},
+ {name:"Gupta General Store",emoji:"🏬",area:"Community Lane",distance:"0.5 km",hours:"8:30 AM – 9:30 PM",desc:"Daily household goods, dairy and packaged foods."}
+];
+let activeCategory="All";
+function renderProducts(){
+ const query=(document.getElementById("searchInput").value||"").trim().toLowerCase();
+ const availability=document.getElementById("availabilityFilter").value;
+ const sort=document.getElementById("sortSelect").value;
+ let list=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(`${p.name} ${p.category} ${p.detail} ${p.shop}`).toLowerCase().includes(query)&&(availability==="all"||(availability==="in"?p.qty>0:p.qty===0)));
+ if(sort==="priceLow")list.sort((a,b)=>a.price-b.price);if(sort==="priceHigh")list.sort((a,b)=>b.price-a.price);
+ document.getElementById("resultCount").textContent=`${list.length} ${list.length===1?"item":"items"} found`;
+ const grid=document.getElementById("productsGrid");
+ if(!list.length){grid.innerHTML='<div class="empty"><div style="font-size:2rem">🔎</div><b>No matching groceries found</b><p>Try another search or choose a different category.</p><button class="btn secondary small" onclick="resetSearch()">Clear filters</button></div>';return}
+ grid.innerHTML=list.map(p=>`<article class="product"><div class="product-visual"><span>${p.emoji}</span><span class="badge ${p.qty>0?"in":"out"}">${p.qty>0?"● In stock":"Out of stock"}</span></div><h3>${escapeHTML(p.name)}</h3><div class="meta">${escapeHTML(p.detail)}</div><div class="meta" style="margin-top:7px">🏪 ${escapeHTML(p.shop)} · ${p.distance}</div><div class="product-bottom"><div><div class="price">₹${p.price}</div><div class="meta">${p.qty>0?`${p.qty} units in demo stock`:"Check another shop"}</div></div><button class="btn ${p.qty>0?"primary":"secondary"} small" ${p.qty===0?'disabled':''} onclick="showToast('Demo only: please confirm '+${JSON.stringify(p.name)}+' with the shopkeeper.')">${p.qty>0?"View shop":"Unavailable"}</button></div></article>`).join("");
+}
+function setCategory(category,button){activeCategory=category;document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===button));renderProducts()}
+function resetSearch(){document.getElementById("searchInput").value="";document.getElementById("availabilityFilter").value="all";document.getElementById("sortSelect").value="popular";setCategory("All",document.querySelector('[data-category="All"]'))}
+function renderShops(){document.getElementById("shopsGrid").innerHTML=shops.map(s=>`<article class="shop-card"><div class="shop-emoji">${s.emoji}</div><h3>${escapeHTML(s.name)}</h3><p>${escapeHTML(s.desc)}</p><div class="shop-info"><span>📍 ${s.distance}</span><span>🕒 ${s.hours}</span></div><button class="btn secondary small" onclick="showToast('Demo shop: '+${JSON.stringify(s.name)}+'. Live directions can be connected later.')">Shop details ↗</button></article>`).join("")}
+function openMerchant(){document.getElementById("merchantModal").classList.add("open");renderInventory()}
+function closeMerchant(){document.getElementById("merchantModal").classList.remove("open")}
+function renderInventory(){
+ const items=products.filter(p=>p.merchantAdded);
+ const box=document.getElementById("merchantInventory");
+ if(!items.length){box.innerHTML='<p class="sub">No custom products yet. Add an item above to try the inventory controls.</p>';return}
+ box.innerHTML='<table class="merchant-table"><thead><tr><th>Product</th><th>Price ₹</th><th>Qty</th><th>Status</th><th>Save</th></tr></thead><tbody>'+items.map(p=>`<tr><td>${escapeHTML(p.name)}</td><td><input type="number" min="0" value="${p.price}" id="price-${p.id}"></td><td><input type="number" min="0" value="${p.qty}" id="qty-${p.id}"></td><td>${p.qty>0?'<span style="color:var(--green)">In stock</span>':'<span style="color:var(--red)">Out</span>'}</td><td><button class="btn secondary small" onclick="saveInventory(${p.id})">Save</button></td></tr>`).join("")+'</tbody></table>';
+}
+function addMerchantProduct(){
+ const name=document.getElementById("newProduct").value.trim(),price=Number(document.getElementById("newPrice").value),qty=Number(document.getElementById("newQty").value),category=document.getElementById("newCategory").value;
+ if(!name||document.getElementById("newPrice").value===""||price<0||qty<0||!Number.isFinite(price)||!Number.isFinite(qty)){showToast("Enter a product name, valid price and quantity.");return}
+ const emojis={"Staples":"🌾","Oil & Ghee":"🫗","Dairy":"🥛","Snacks":"🍪","Household":"🧼"};
+ products.push({id:Math.max(...products.map(p=>p.id))+1,name,detail:"Added in shopkeeper demo",price,category,emoji:emojis[category]||"🛍️",shop:document.getElementById("shopName").value.trim()||"My Kirana Store",distance:"Your shop",qty,merchantAdded:true});
+ document.getElementById("newProduct").value="";document.getElementById("newPrice").value="";
+ renderInventory();renderProducts();showToast("Product added to this browser's demo inventory.");
+}
+function saveInventory(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ const price=Number(document.getElementById("price-"+id).value),qty=Number(document.getElementById("qty-"+id).value);
+ if(price<0||qty<0||!Number.isFinite(price)||!Number.isFinite(qty)){showToast("Price and quantity must be zero or more.");return}
+ p.price=price;p.qty=qty;renderInventory();renderProducts();showToast("Demo inventory updated.");
+}
+function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2800)}
+function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();renderShops();
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMerchant()});
+</script>
+</body>
+</html>
